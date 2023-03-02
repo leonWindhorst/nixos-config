@@ -1,5 +1,5 @@
 [
-  ./android
+  # ./android
   ./kitty
   ./nvim
   ./picom
