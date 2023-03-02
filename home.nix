@@ -20,29 +20,29 @@ in {
 
       # Video/Audio
       feh               # Image Viewer
-      pavucontrol       # Pulse Audio Settings
+      # pavucontrol       # Pulse Audio Settings
 
       # File Management
       unzip
       ranger            # Terminal File Manager
 
       # Apps
-      discord
+      # discord
       firefox           # Browser
-      zoom-us           # Video Conferencing
-      portfolio         # Portfolio Performance
-      thunderbird       # Email
+      # zoom-us           # Video Conferencing
+      # portfolio         # Portfolio Performance
+      # thunderbird       # Email
       zathura           # PDF Viewer
-      gimp
+      # gimp
       flameshot         # Screenshot Tool
       zotero            # Literature Manager
 
       # Dev stuff
       gh                # GitHub CLI
-      rustup            # Rust Toolchain Utility
-      rust-analyzer     # Rust LSP
+      # rustup            # Rust Toolchain Utility
+      # rust-analyzer     # Rust LSP
       tree-sitter
-      openvpn
+      # openvpn
 
       # For GTK configuration
       dconf

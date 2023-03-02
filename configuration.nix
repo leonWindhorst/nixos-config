@@ -16,7 +16,7 @@ in {
 
   boot = {
     # Use the latest available Kernel packages.
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
 
     # Use the systemd-boot EFI boot loader.
     loader = {
@@ -53,7 +53,7 @@ in {
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      # videoDrivers = [ "amdgpu" ];
 
       layout = "us";
       xkbOptions = "caps:escape";
@@ -77,9 +77,9 @@ in {
 
         defaultSession = "none+awesome";
 
-        setupCommands = ''
-          ${pkgs.xorg.xrandr}/bin/xrandr -s 1920x1080 -r 240
-        '';
+        # setupCommands = ''
+        #   ${pkgs.xorg.xrandr}/bin/xrandr -s 1600x900
+        # '';
       };
 
       windowManager.awesome.enable = true;
@@ -89,32 +89,32 @@ in {
     };
 
     # Printer stuff
-    printing.enable = true;
+    # printing.enable = true;
 
     # Needed for wireless printer/scanner
-    avahi = { 
-      enable = true;
-      nssmdns = true;
-      publish = {
-        enable = true;
-        addresses = true;
-        userServices = true;
-      };
-    };
+    # avahi = { 
+    #   enable = true;
+    #   nssmdns = true;
+    #   publish = {
+    #     enable = true;
+    #     addresses = true;
+    #     userServices = true;
+    #   };
+    # };
 
-    # Sound
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-      jack.enable = true;
-    };
+    # # Sound
+    # pipewire = {
+    #   enable = true;
+    #   alsa = {
+    #     enable = true;
+    #     support32Bit = true;
+    #   };
+    #   pulse.enable = true;
+    #   jack.enable = true;
+    # };
 
-    # Needed for Gnome Files/Nautilus
-    gvfs.enable = true;
+    # # Needed for Gnome Files/Nautilus
+    # gvfs.enable = true;
   };
 
   fonts = {
@@ -162,9 +162,9 @@ in {
     ];
   };
 
-  programs = {
-    steam.enable = true;
-  };
+  # programs = {
+  #   steam.enable = true;
+  # };
 
   nix = {
     settings.auto-optimise-store = true;
