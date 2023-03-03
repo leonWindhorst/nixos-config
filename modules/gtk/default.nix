@@ -14,7 +14,7 @@ in {
       # name = "Dracula";
 
       package = derivations.colloid-gtk-theme;
-      name = "Colloid-Dark";
+      name = "Colloid-RosePine";
     };
 
     iconTheme = {
