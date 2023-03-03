@@ -30,7 +30,7 @@ stdenvNoCC.mkDerivation rec {
     repo = pname;
     # rev = "v${version}";
     rev = "main";
-    sha256 = "6VO4b9ORBLtOJXZo2Y/uxQUACxPS8owcOxqx03LN41M=";
+    sha256 = "1FbHWUxto+s/9alunXZFLC4Az5PPwxe7/rRcJPHIaGQ=";
   };
 
   nativeBuildInputs = [
@@ -47,18 +47,17 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   postPatch = ''
-    patchShebangs install.sh clean-old-theme.sh
+    patchShebangs install.sh install_gtk_only.sh clean-old-theme.sh
   '';
 
   installPhase = ''
     runHook preInstall
 
-    name= HOME="$TMPDIR" ./install.sh \
+    name= HOME="$TMPDIR" ./install_gtk_only.sh \
       ${lib.optionalString (themeVariants != []) "--theme " + builtins.toString themeVariants} \
       ${lib.optionalString (colorVariants != []) "--color " + builtins.toString colorVariants} \
       ${lib.optionalString (sizeVariants != []) "--size " + builtins.toString sizeVariants} \
       ${lib.optionalString (tweaks != []) "--tweaks " + builtins.toString tweaks} \
-      --libadwaita \
       --dest $out/share/themes
 
     jdupes --link-soft --recurse $out/share
