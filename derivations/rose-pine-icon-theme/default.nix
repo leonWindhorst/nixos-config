@@ -11,7 +11,7 @@ stdenvNoCC.mkDerivation rec {
     owner = "rose-pine";
     repo = "gtk";
     rev = "v${version}";
-    sha256 = "sha256-MT8AeC+uGRZS4zFNvAqxqSLVYpd9h64RdSvr6Ky4HA4=";
+    sha256 = "MT8AeC+uGRZS4zFNvAqxqSLVYpd9h64RdSvr6Ky4HA4=";
   };
 
   installPhase = ''

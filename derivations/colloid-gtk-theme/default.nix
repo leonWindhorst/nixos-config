@@ -19,7 +19,7 @@ in
 lib.checkListOfEnum "${pname}: theme variants" [ "default" "purple" "pink" "red" "orange" "yellow" "green" "teal" "grey" "all" ] themeVariants
 lib.checkListOfEnum "${pname}: color variants" [ "standard" "light" "dark" ] colorVariants
 lib.checkListOfEnum "${pname}: size variants" [ "standard" "compact" ] sizeVariants
-lib.checkListOfEnum "${pname}: tweaks" [ "nord" "black" "dracula" "rimless" "normal" ] tweaks
+lib.checkListOfEnum "${pname}: tweaks" [ "rose_pine" "nord" "black" "dracula" "rimless" "normal" ] tweaks
 
 stdenvNoCC.mkDerivation rec {
   inherit pname;
@@ -28,8 +28,9 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "leonWindhorst";
     repo = pname;
-    rev = "v${version}";
-    hash = "sha256-sSVBsiq6lW4vKp7OFNr/SGtj42uNh1tzNPWNFATrFrE=";
+    # rev = "v${version}";
+    rev = "main";
+    sha256 = "6VO4b9ORBLtOJXZo2Y/uxQUACxPS8owcOxqx03LN41M=";
   };
 
   nativeBuildInputs = [
@@ -57,6 +58,7 @@ stdenvNoCC.mkDerivation rec {
       ${lib.optionalString (colorVariants != []) "--color " + builtins.toString colorVariants} \
       ${lib.optionalString (sizeVariants != []) "--size " + builtins.toString sizeVariants} \
       ${lib.optionalString (tweaks != []) "--tweaks " + builtins.toString tweaks} \
+      --libadwaita \
       --dest $out/share/themes
 
     jdupes --link-soft --recurse $out/share
