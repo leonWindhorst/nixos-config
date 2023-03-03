@@ -1,6 +1,8 @@
-{ stdenv, fetchFromGitHub }:
+{ stdenvNoCC
+, fetchFromGitHub
+}:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "sddm-rose-pine-theme";
   version = "1.2";
   dontBuild = true;

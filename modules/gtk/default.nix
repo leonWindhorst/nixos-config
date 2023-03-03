@@ -21,8 +21,11 @@ in {
       # package = pkgs.colloid-icon-theme;
       # name = "Colloid-dark";
 
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
+      # package = pkgs.papirus-icon-theme;
+      # name = "Papirus-Dark";
+
+      package = derivations.rose-pine-icon-theme;
+      name = "rose-pine";
     };
 
     # font = {
