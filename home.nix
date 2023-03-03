@@ -80,8 +80,11 @@ in {
       # package = pkgs.colloid-gtk-theme;
       # name = "Colloid-Dark";
 
-      package = pkgs.dracula-theme;
-      name = "Dracula";
+      # package = pkgs.dracula-theme;
+      # name = "Dracula";
+
+      package = derivations.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
 
     iconTheme = {
