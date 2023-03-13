@@ -1,9 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  derivations = import ./derivations {
-    inherit pkgs;
-  };
+  derivations = import ./derivations { inherit pkgs; };
+
 in {
   imports = import ./modules;
 
@@ -49,6 +48,8 @@ in {
 
       # Wine for both 32 and 64 bit
       wineWowPackages.stableFull
+
+      derivations.hardcode-tray
     ];
 
     pointerCursor = {
