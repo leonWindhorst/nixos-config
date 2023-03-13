@@ -7,6 +7,7 @@
 , pkg-config
 , gobject-introspection
 , gtk3
+, wrapGAppsHook
 }:
 
 let
@@ -27,16 +28,17 @@ in stdenvNoCC.mkDerivation rec {
   nativeBuildInputs = [
     pkg-config
     gobject-introspection
-    gtk3
+    wrapGAppsHook
   ];
 
   buildInputs = [
+    gtk3
     meson
     ninja
   ];
 
   propagatedUserEnvPkgs = [
-    (python3.withPackages (p: with p; [ pygobject3 ] ))
+    (python3.withPackages (p: with p; [ pygobject3 cairosvg ] ))
   ];
 
   installPhase = ''
@@ -47,6 +49,8 @@ in stdenvNoCC.mkDerivation rec {
 
     meson $out/tmp/builddir --prefix=$out
     ninja -C $out/tmp/builddir install
+
+    export PATH=$out/bin:$PATH
 
     runHook postInstall
   '';

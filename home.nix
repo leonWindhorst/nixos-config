@@ -49,6 +49,7 @@ in {
       # Wine for both 32 and 64 bit
       wineWowPackages.stableFull
 
+      # broken cuz it doesn't have access to GTK, no idea how to fix
       derivations.hardcode-tray
     ];
 
